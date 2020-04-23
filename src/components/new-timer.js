@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import connect from 'react-redux'
+import {connect} from 'react-redux'
 
 // We need to import our action to add a new timer
-import addTimer from '../actions'
+import {addTimer} from '../actions/'
 
 class NewTimer extends Component {
   constructor(props) {
