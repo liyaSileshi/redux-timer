@@ -1,5 +1,5 @@
 // import actions
-import {TOGGLE_TIMER, NEW_TIMER} from '../actions'
+import {TOGGLE_TIMER, NEW_TIMER, UPDATE} from '../actions'
 import Timer from '../Timer'
 
 const timerReducer = (state = [], action) => {
@@ -26,6 +26,16 @@ const timerReducer = (state = [], action) => {
             return timer
             })
             return newState
+
+        //for all timers where isRunning is True, make a new object where Time is 
+        //old time + deltatime
+        case UPDATE:
+            return state.map((timer) => {
+                if (timer.isRunning) {
+                    timer = {...timer, time: timer.time += action.payload.deltaTime}
+                }
+                return timer
+            })
 
         default:
             return state

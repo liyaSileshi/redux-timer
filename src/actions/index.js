@@ -1,6 +1,8 @@
 export const NEW_TIMER = 'NEW_TIMER'
 export const TOGGLE_TIMER = 'TOGGLE_TIMER'
 export const SELECT_TIMER = 'SELECT_TIMER'
+export const UPDATE = 'UPDATE'
+
 // ADD_TIMER - Creating a timer will add a new
 // timer object to an array of timer objects held 
 // by the store.
@@ -30,3 +32,9 @@ export const selectTimer = (index) => {
   }
 }
 
+export const update = (deltaTime) => {
+  return {
+    type: UPDATE,
+    payload: {deltaTime}
+  }
+}
